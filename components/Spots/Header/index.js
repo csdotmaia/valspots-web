@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 
 import style from './styles'
 
-export default function Header({params, data}){
+export default function Header({params, data, description}){
   // let {map, agents} = props
   const classes = style()
 
@@ -25,13 +25,15 @@ export default function Header({params, data}){
 
       <div className={classes.headerText}>
         <Typography variant="h5" style={{fontFamily: 'Circular Std'}}>
-          Learn a variety of smokes, walls, dart etc 
+          Learn the Radiant {description}
+          {/* Learn a variety of smokes, walls, dart etc  */}
         </Typography>
         <Typography variant="h5" style={{fontFamily: 'Circular Std'}}>
           Add your best ones to your favorites list
         </Typography>
         <Typography variant="h5" style={{fontFamily: 'Circular Std'}}>
-          So become a high level player
+          So make your radiant plays
+          {/* So master your gameplay like a radiant player */}
         </Typography>
       </div>
 

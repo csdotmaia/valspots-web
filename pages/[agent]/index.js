@@ -12,9 +12,14 @@ function Agent({params, data}) {
   return(
     <Layout 
       title={`${data.agent.nome} ${data.agent.text_solo} - Valorant Spots`} 
+      description={`Find ${data.agent.nome} ${data.agent.text_solo} Spots and improve your gameplay learning and practicing. Checkout our database of the best spots on valorant`}
       data={{agents: data.agents}} 
     >
-      <Header params={{agent: params.agent}} data={{maps: data.maps}}/>
+      <Header 
+        params={{agent: params.agent}} 
+        data={{maps: data.maps}}
+        description={`${data.agent.text_solo} of ${data.agent.nome}`}
+      />
       <Title/>
       <GridSpots params={{agent: params.agent}} data={{spots: data.spots}}/>
     </Layout>

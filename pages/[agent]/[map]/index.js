@@ -7,10 +7,15 @@ import api from '../../../services/api'
 function Agent({params, data}) {
   return(
     <Layout 
-      title={`${data.agent.nome} ${data.agent.text_duo} on ${params.map.charAt(0).toUpperCase()+params.map.slice(1)} - Valorant Spots`} 
+      title={`${data.agent.nome} ${data.agent.text_duo} on ${data.map.nome} - Valorant Spots`} 
+      description={`Find ${data.agent.nome} ${data.agent.text_solo} Spots in ${data.map.nome} and improve your gameplay learning and practicing. Checkout our database of the best spots on valorant`}
       data={{agents: data.agents}}
     >
-      <Header params={{map: params.map, agent: params.agent}} data={{maps: data.maps}}/>
+      <Header 
+        params={{map: params.map, agent: params.agent}} 
+        data={{maps: data.maps}}
+        description={`${data.agent.text_solo} of ${data.agent.nome} on ${data.map.nome}`}
+      />
       <Title/>
       <GridSpots params={{map: params.map, agent: params.agent}} data={{spots: data.spots}}/>
     </Layout>
@@ -51,6 +56,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
   var agents = await api.get('/personagem/all', {headers: {token: 'userAgentToken'} })
   var agent = await api.get(`/personagem/${params.agent}`, {headers: {token: 'userAgentToken'} })
+  var map = await api.get(`/mapa/${params.map}`, {headers: {token: 'userAgentToken'} })
   var maps = await api.get('/mapa/all', {headers: {token: 'userAgentToken'} })
   var spots = await api.get('/spots/all', {headers: {token: 'userAgentToken'} })
   // var {data} = await api.get('/personagem/all', {headers: {token: 'userAgentToken'} })
@@ -65,6 +71,7 @@ export async function getStaticProps({params}) {
       data:{
         agent: agent.data,
         agents: agents.data,
+        map: map.data,
         maps: maps.data,
         spots: spots.data
       }

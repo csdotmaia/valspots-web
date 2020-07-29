@@ -17,7 +17,7 @@ function LayoutApp ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="index"/>
-        <meta name="description" content=""></meta>
+        <meta name="description" content={description}></meta>
         <meta name="keywords" content="valorant agent sova omen raze reyna cypher viper pro advanced sage brimstone smoke trap camera spy cam arrow incendiary grenade slow orb wall molotov tips best improve radiant maps haven ascent bind split" />
       </Head>
       <NavBar/>
